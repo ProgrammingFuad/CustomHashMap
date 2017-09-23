@@ -10,7 +10,9 @@ public class HashMap<K,V> implements Map<K,V>
 
 
     public HashMap(int size){
-        this.size=size;
+        this.size=findNextPrime(size);
+	    array = new int[this.size];
+	    fillArray(array,-1);
     }
 
 
@@ -38,6 +40,11 @@ public class HashMap<K,V> implements Map<K,V>
     private void decrementCurrentLoad(){
         if(currLoad>0)currLoad-=1;
     }
+
+
+   private void fillArray(int[] array){
+	    Arrays.fill(array,-1);
+   }
 
 
     public int findNextPrime(int minNumberToCheck){
